@@ -58,7 +58,7 @@ Behind the scenes this will also call `npm run copy-libs`, which copies the Angu
 other front end dependencies. After that, you should find out that you have two new directories in
 your project.
 
-* `node_modules` - contains the npm packages for the tools we need
+* `node_modules` - contains the npm clients for the tools we need
 * `app/lib` - contains the AngularJS framework files and other front end dependencies
 
 *Note copying the AngularJS files from `node_modules` to `app/lib` makes it easier to serve the
@@ -97,7 +97,7 @@ app/                  --> all of the source files for the application
     view2.html            --> the partial template
     view2.js              --> the controller logic
     view2_test.js         --> tests of the controller
-  app.js                --> main application module
+  app.module.js                --> main application module
   index.html            --> app layout file (the main html template file of the app)
   index-async.html      --> just like index.html, but loads js files asynchronously
 e2e-tests/            --> end-to-end tests

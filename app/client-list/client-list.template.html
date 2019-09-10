@@ -1,0 +1,45 @@
+<div>
+    <h4 class="card-title">Clients</h4>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <form>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail3">Search</label>
+                <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Search" ng-model="$ctrl.query">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail3">Order By</label>
+                <select class="form-control" ng-model="$ctrl.order">
+                    <option value="lName">Last Name</option>
+                    <option value="company">Company</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10"></div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="client in $ctrl.clients | filter: $ctrl.query | orderBy: $ctrl.order">
+            <td>{{client.lName}}</td>
+            <td>{{client.fName}}</td>
+            <td>{{client.company}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.telephone}}</td>
+            <td><a class="btn btn-danger" ng-click="$ctrl.deleteClient(client)">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

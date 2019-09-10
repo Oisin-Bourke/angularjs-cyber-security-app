@@ -39,4 +39,27 @@ describe('my app', function() {
     });
 
   });
+
+  describe('packageList',function () {
+
+      beforeEach(function () {
+          browser.get('index.html#!/view1');
+      });
+
+      it('should filter clients as a user types into the search box', function () {
+          var packageList = element.all(by.repeater('package in $ctrl.clients'));
+          var query = element(by.model('$ctrl.query'));
+
+          expect(packageList.count()).toBe(4);
+
+          query.sendKeys('1');
+          expect(packageList.count()).toBe(3);
+
+          it('should set a default value for the `orderProp` model', function() {
+              expect(ctrl.orderProp).toBe('id');
+          });
+
+      });
+  });
+
 });
